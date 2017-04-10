@@ -1,20 +1,22 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
 import {Http, HttpModule} from '@angular/http';
 
-import { AppComponent } from './app.component';
-import {HomeComponent} from "./home.component";
-import {PhotoListComponent} from "./photo.list.component";
-import {SidePanelComponent} from "./side.panel.component";
-import {AppRoutingModule} from "./app.routering.module";
-import {NavBarComponent} from "./nav.bar.component";
+import {AppComponent} from './app.component';
+import {HomeComponent} from './home.component';
+import {PhotoListComponent} from './photo.list.component';
+import {SidePanelComponent} from './side.panel.component';
+import {AppRoutingModule} from './app.routering.module';
+import {NavBarComponent} from './nav.bar.component';
 
 // Imports for loading & configuring the in-memory web api
-import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
-import {TestData}  from 'data/in-memory-data.service';
-import {PhotoService} from "./services/photo.service";
-import {UserService} from "./services/user.service";
+import {InMemoryWebApiModule} from 'angular2-in-memory-web-api';
+import {TestData} from 'data/in-memory-data.service';
+import {PhotoService} from './services/photo.service';
+import {UserService} from './services/user.service';
+import {RegisterComponent} from './register.component';
+import {LoginComponent} from './login.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import {UserService} from "./services/user.service";
     HomeComponent,
     PhotoListComponent,
     SidePanelComponent,
-    NavBarComponent
+    NavBarComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     HttpModule,
@@ -38,4 +42,5 @@ import {UserService} from "./services/user.service";
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
