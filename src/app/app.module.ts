@@ -17,12 +17,14 @@ import {PhotoService} from './services/photo.service';
 import {UserService} from './services/user.service';
 import {RegisterComponent} from './register.component';
 import {LoginComponent} from './login.component';
+import {PhotoDetailComponent} from './photo.detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PhotoListComponent,
+    PhotoDetailComponent,
     SidePanelComponent,
     NavBarComponent,
     RegisterComponent,

@@ -6,23 +6,27 @@
 
     <div class="fourteen wide column">
       <div class="ui raised segment" *ngFor="let photo of photos">
-        <img src="resources/static/pic/sample1.jpg" class="ui image centered big" style="cursor: pointer"/>
-        <div class="ui center aligned grid">
-            <div class="twelve wide column">
-              <div class="ui grid">
-                <div class="four column row">
-                  <div class="left floated ten wide column left aligned">
-                    <strong>Photo Title</strong>:{{photo.title}}<br>
-                    Photo Description:{{photo.description}}
-                  </div>
+        <a [routerLink]="['/Photo',photo.photoId]"><img src="resources/static/pic/sample1.jpg"
+                                                        class="ui image centered big" style="cursor: pointer"/>
+          <div class="photoModule">
+            <div class="ui center aligned grid">
+              <div class="twelve wide column">
+                <div class="ui grid">
+                  <div class="four column row">
+                    <div class="left floated ten wide column left aligned">
+                      <strong>Photo Title</strong>:{{photo.title}}<br>
+                      Photo Description:{{photo.description}}
+                    </div>
 
-                  <div class="right floated column right aligned">
-                    31 &nbsp; Likes
+                    <div class="right floated column right aligned">
+                      31 &nbsp; Likes
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-        </div>
+          </div>
+        </a>
       </div>
     </div>
   </div>

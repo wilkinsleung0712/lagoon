@@ -1,0 +1,9 @@
+a {
+  text-decoration: none;
+  /*disable any text color*/
+  color: #0f0f10 !important;
+}
+.photoModule:hover{
+  cursor: pointer;
+}
+
