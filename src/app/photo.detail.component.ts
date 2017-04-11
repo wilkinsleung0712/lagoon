@@ -5,6 +5,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {PhotoService} from './services/photo.service';
 import {Photo} from './model/photo';
 import {ActivatedRoute, Params} from '@angular/router';
+import { Location } from '@angular/common';
 import 'rxjs/add/operator/switchMap';
 @Component({
   selector: 'photo-detail',

@@ -10,7 +10,7 @@ import {PhotoDetailComponent} from './photo.detail.component';
 
 
 const routes: Routes = [
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: '', redirectTo: '/Home', pathMatch: 'full'},
   {path: 'Home', component: HomeComponent},
   {path: 'Register', component: RegisterComponent},
   {path: 'Login', component: LoginComponent},

@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {Http, HttpModule} from '@angular/http';
+import {HttpModule} from '@angular/http';
 
 import {AppComponent} from './app.component';
 import {HomeComponent} from './home.component';
@@ -11,7 +11,7 @@ import {AppRoutingModule} from './app.routering.module';
 import {NavBarComponent} from './nav.bar.component';
 
 // Imports for loading & configuring the in-memory web api
-import {InMemoryWebApiModule} from 'angular2-in-memory-web-api';
+import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
 import {TestData} from 'data/in-memory-data.service';
 import {PhotoService} from './services/photo.service';
 import {UserService} from './services/user.service';
