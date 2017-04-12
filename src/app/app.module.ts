@@ -12,7 +12,7 @@ import {NavBarComponent} from './nav.bar.component';
 
 // Imports for loading & configuring the in-memory web api
 import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
-import {TestData} from 'data/in-memory-data.service';
+import {PhotoDataService} from 'data/in-memory-data.service';
 import {PhotoService} from './services/photo.service';
 import {UserService} from './services/user.service';
 import {RegisterComponent} from './register.component';
@@ -36,7 +36,7 @@ import {PhotoDetailComponent} from './photo.detail.component';
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    InMemoryWebApiModule.forRoot(TestData)
+    InMemoryWebApiModule.forRoot(PhotoDataService)
   ],
   providers: [
     PhotoService,

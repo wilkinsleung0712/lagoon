@@ -9,7 +9,7 @@ import {stringify} from 'querystring';
 export class PhotoService {
 
   private photo_url = 'api/photos';
-  private photo_crud_url = 'api/photo';
+  private photo_crud_url = 'api/photos';
   private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: Http) {
@@ -38,7 +38,10 @@ export class PhotoService {
   }
 
   getPhoto(photoId: number): Promise<Photo> {
-    return this.http.get(`${this.photo_crud_url}/${photoId}`).toPromise().then(res => res.json().data as Photo).catch(this.handleError);
+    return this.http.get(`${this.photo_crud_url}/${photoId}`)
+      .toPromise()
+      .then(res => res.json().data as Photo)
+      .catch(this.handleError);
   }
 
   private handleError(error: any): Promise<any> {

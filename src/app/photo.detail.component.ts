@@ -24,6 +24,7 @@ export class PhotoDetailComponent implements OnInit {
     console.log('on init');
     // If a user re-navigates to this component while a getHero request is still processing,
     // switchMap cancels the old request and then calls HeroService.getHero() again.
-    this.route.params.switchMap((params: Params) => this.photoService.getPhoto(params['id'])).subscribe(photo => this.photo = photo);
+    this.route.params.switchMap((params: Params) => this.photoService.getPhoto(params['photoId'])).subscribe(photo => this.photo = photo);
+    console.log(this.photo);
   }
 }
