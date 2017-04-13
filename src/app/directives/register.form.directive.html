@@ -1,0 +1,36 @@
+<div class="ui center raised segment">
+  <form class="ui form" #registerForm="ngForm" (ngSubmit)="userRegister(registerForm)">
+    <h4 class="ui dividing header">Registration</h4>
+    <div class="field">
+      <label>Name</label>
+      <div class="two fields">
+        <div class="field">
+          <input type="text" name="firstName" placeholder="First Name" ngModel required>
+        </div>
+        <div class="field">
+          <input type="text" name="lastName" placeholder="Last Name" ngModel required>
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <label>User Name</label>
+      <div class="fields">
+        <div class="sixteen wide field">
+          <input type="text" name="userName" placeholder="User Name" ngModel required>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Password</label>
+      <div class="fields">
+        <div class="sixteen wide field">
+          <input type="text" name="password" placeholder="Password" ngModel required>
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="ui button primary" tabindex="0">Submit</button>
+  </form>
+
+</div>

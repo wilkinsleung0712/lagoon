@@ -4,8 +4,8 @@
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {HomeComponent} from './home.component';
-import {RegisterComponent} from './register.component';
-import {LoginComponent} from './login.component';
+import {RegisterComponent} from './register/register.component';
+import {LoginComponent} from './login/login.component';
 import {PhotoDetailComponent} from './photo.detail.component';
 
 

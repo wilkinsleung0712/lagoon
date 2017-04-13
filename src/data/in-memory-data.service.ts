@@ -55,6 +55,14 @@ export class PhotoDataService implements InMemoryDbService {
         description: 'This is photo Five'
       }];
 
+    const users = [{
+      id: 1,
+      userId: 1,
+      firstName: 'Wilkins',
+      lastName: 'Liang',
+      password: '100200',
+      userName: 'Wilkins.Liang'
+    }];
 
     // let photoOne:Photo = new Photo(1,'Photo One','Image One','Photo Title One','This is photo One');
     // let photoTwo:Photo = new Photo(2,'Photo Two','Image Two','Photo Title Two','This is photo Two');
@@ -77,6 +85,6 @@ export class PhotoDataService implements InMemoryDbService {
     // users.push(new User(4,'Jacky','Chan','100200'));
 
 
-    return {photos};
+    return {photos, users};
   }
 }

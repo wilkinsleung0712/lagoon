@@ -1,0 +1,17 @@
+<form #loginForm="ngForm" (ngSubmit)="userLogin(loginForm)" class="ui form">
+  <div class="field">
+    <label>Username</label>
+    <div class="ui left icon input">
+      <input type="text" placeholder="Username" autocomplete="off" name="username" required ngModel>
+      <i class="user icon"></i>
+    </div>
+  </div>
+  <div class="field">
+    <label>Password</label>
+    <div class="ui left icon input">
+      <input type="password" name="password" required ngModel>
+      <i class="lock icon"></i>
+    </div>
+  </div>
+  <button type="submit" class="ui blue submit button">Login</button>
+</form>

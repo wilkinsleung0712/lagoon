@@ -11,18 +11,20 @@ export class User {
   public created: Date;
   public photoList: Photo[];
   public linkedPhotoList: Photo[];
+  public userName: string;
 
 
-  constructor(userId: number, firstName: string, lastName: string, password: string) {
+  constructor(userId: number, firstName: string, lastName: string, password: string, userName?: string) {
     this.userId = userId;
     this.firstName = firstName;
     this.lastName = lastName;
     this.password = password;
     this.photoList = [];
     this.linkedPhotoList = [];
+    this.userName = (userName) ? userName : firstName + '.' + lastName;
   }
 
-  public addPhoto(photo:Photo):void {
+  public addPhoto(photo: Photo): void {
     this.photoList.push(photo);
   }
 }

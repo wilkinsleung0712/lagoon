@@ -15,9 +15,11 @@ import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
 import {PhotoDataService} from 'data/in-memory-data.service';
 import {PhotoService} from './services/photo.service';
 import {UserService} from './services/user.service';
-import {RegisterComponent} from './register.component';
-import {LoginComponent} from './login.component';
+import {RegisterComponent} from './register/register.component';
+import {LoginComponent} from './login/login.component';
 import {PhotoDetailComponent} from './photo.detail.component';
+import {LoginFormDirectiveComponent} from './directives/login.form.directive';
+import {RegisterFormDirectiveComponent} from './directives/register.form.directive';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import {PhotoDetailComponent} from './photo.detail.component';
     SidePanelComponent,
     NavBarComponent,
     RegisterComponent,
-    LoginComponent
+    RegisterFormDirectiveComponent,
+    LoginComponent,
+    LoginFormDirectiveComponent
   ],
   imports: [
     HttpModule,
