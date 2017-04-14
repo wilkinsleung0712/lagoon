@@ -18,7 +18,16 @@ export class PhotoDataService implements InMemoryDbService {
       commentList: [
         {
           commentId: '1',
-          content: 'hellow'
+          content: 'hellow',
+          userName: 'Wilkins.Liang'
+        },{
+          commentId: '2',
+            content: 'hellow',
+          userName: 'Vicky.Zhang'
+        },{
+          commentId: '3',
+            content: 'hellow',
+          userName: 'Allan.Wong'
         }
       ]
     },
