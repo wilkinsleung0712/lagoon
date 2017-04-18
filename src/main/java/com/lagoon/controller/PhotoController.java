@@ -1,35 +1,76 @@
 package com.lagoon.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.lagoon.common.ExceptionUtils;
 import com.lagoon.common.LagoonResult;
 import com.lagoon.model.Photo;
+import com.lagoon.service.PhotoService;
 
 @RestController
 @RequestMapping("/api")
 public class PhotoController {
 
-	@RequestMapping(value="/photos/getPhotoList",method=RequestMethod.GET)
-	public LagoonResult getAllPhotos(){
-		return null;
-	}
-	
-	@RequestMapping(value="/photo/{id}",method=RequestMethod.GET)
-	public LagoonResult getPhoto(@PathVariable long photoId){
-		return null;
-	}
-	
-	@RequestMapping(value="/photo",method=RequestMethod.PUT)
-	public LagoonResult editPhoto(@RequestParam Photo photo){
-		return null;
-	}
-	
-	@RequestMapping(value="/photo/{id}",method=RequestMethod.DELETE)
-	public LagoonResult deletePhoto(@PathVariable("id") long photoId){
-		return null;
-	}
+    @Autowired
+    private PhotoService photoService;
+
+    @RequestMapping(value = "/photos", method = RequestMethod.GET)
+    public LagoonResult getAllPhotos() {
+        LagoonResult result = null;
+        try {
+            List<Photo> photoList = this.photoService.findAll();
+            result = new LagoonResult(photoList);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            result = new LagoonResult(500, ExceptionUtils.getStackTrace(e), null);
+        }
+        return result;
+    }
+
+    @RequestMapping(value = "/photo/{id}", method = RequestMethod.GET)
+    public LagoonResult getPhoto(@PathVariable Long photoId) {
+        LagoonResult result = null;
+        try {
+            Photo photo = this.photoService.findByPhotoId(photoId);
+            result = LagoonResult.ok(photo);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            result = new LagoonResult(500, ExceptionUtils.getStackTrace(e), null);
+        }
+        return result;
+    }
+
+    @RequestMapping(value = "/photo", method = RequestMethod.PUT)
+    public LagoonResult editPhoto(@RequestBody Photo photo) {
+        LagoonResult result = null;
+        try {
+            Photo updatedPhoto = this.photoService.save(photo);
+            result = LagoonResult.ok(updatedPhoto);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            result = new LagoonResult(500, ExceptionUtils.getStackTrace(e), null);
+        }
+        return result;
+    }
+
+    @RequestMapping(value = "/photo/{id}", method = RequestMethod.DELETE)
+    public LagoonResult deletePhoto(@PathVariable("id") long photoId) {
+        return null;
+    }
+
+    @RequestMapping(value = "/photo", method = RequestMethod.POST)
+    public LagoonResult uploadPhoto(@RequestParam Photo photo) {
+        return null;
+    }
 }

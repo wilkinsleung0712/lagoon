@@ -4,17 +4,42 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+
+@Entity
 public class Photo {
-	private long photoId;
+    @Id
+    @GeneratedValue (strategy = GenerationType.AUTO)
+	private Long photoId;
 	private String photoName;
 	private String title;
 	private String description;
+	@ManyToOne
+	@JsonBackReference
 	private User user;
 	private String imageName;
+	
+	@OneToMany(mappedBy = "photo", fetch = FetchType.EAGER)
 	private List<Comment> commentList;
-	private List<User> likedByUsers;
+//  @ManyToMany(mappedBy = "likedPhotoList", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//  @JsonIgnore
+//  private List<User> likedUserList;
 	private int likes;
+	@CreationTimestamp
 	private Date createdDate;
+	@UpdateTimestamp
 	private Date updatedDate;
 
 	public Photo() {
@@ -30,16 +55,15 @@ public class Photo {
 		this.user = user;
 		this.imageName = imageName;
 		this.commentList = new ArrayList<Comment>();
-		this.likedByUsers = new ArrayList<User>();
 		this.likes = 0;
 
 	}
 
-	public long getPhotoId() {
+	public Long getPhotoId() {
 		return photoId;
 	}
 
-	public void setPhotoId(long photoId) {
+	public void setPhotoId(Long photoId) {
 		this.photoId = photoId;
 	}
 
@@ -91,13 +115,13 @@ public class Photo {
 		this.commentList = commentList;
 	}
 
-	public List<User> getLikedByUsers() {
-		return likedByUsers;
-	}
-
-	public void setLikedByUsers(List<User> likedByUsers) {
-		this.likedByUsers = likedByUsers;
-	}
+//	public List<User> getLikedByUsers() {
+//		return likedByUsers;
+//	}
+//
+//	public void setLikedByUsers(List<User> likedByUsers) {
+//		this.likedByUsers = likedByUsers;
+//	}
 
 	public int getLikes() {
 		return likes;
