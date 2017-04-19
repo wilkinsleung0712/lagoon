@@ -129,4 +129,16 @@ public class User {
     public void setLikedPhotoList(List<Photo> likedPhotoList) {
         this.likedPhotoList = likedPhotoList;
     }
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return "User [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", userName="
+                + userName + ", password=" + password + ", createdDate=" + createdDate + ", updatedDate=" + updatedDate
+                + "]";
+    }
+    
+    
 }

@@ -88,6 +88,10 @@ public class LagoonResult {
 	public static LagoonResult ok(Object data) {
 		return new LagoonResult(data);
 	}
+	
+	public static LagoonResult ok() {
+        return new LagoonResult(null);
+    }
 
 	public Integer getStatus() {
 		return status;
