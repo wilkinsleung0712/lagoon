@@ -20,11 +20,13 @@ import {LoginComponent} from './login/login.component';
 import {PhotoDetailComponent} from './photo.detail.component';
 import {LoginFormDirectiveComponent} from './directives/login.form.directive';
 import {RegisterFormDirectiveComponent} from './directives/register.form.directive';
+import {AddPhotoComponent} from "./directives/add.photo.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    AddPhotoComponent,
     PhotoListComponent,
     PhotoDetailComponent,
     SidePanelComponent,
@@ -39,8 +41,8 @@ import {RegisterFormDirectiveComponent} from './directives/register.form.directi
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule,
-    InMemoryWebApiModule.forRoot(PhotoDataService)
+    AppRoutingModule
+    // InMemoryWebApiModule.forRoot(PhotoDataService)
   ],
   providers: [
     PhotoService,

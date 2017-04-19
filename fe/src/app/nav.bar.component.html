@@ -10,12 +10,20 @@
       Home
     </a>
   </div>
-  <div class="right menu">
-    <a class="item" [routerLink]="['Register']">
+  <!--<div class="right menu">-->
+    <!--<a class="item" [routerLink]="['Register']">-->
+      <!--Register-->
+    <!--</a>-->
+    <!--<a class="item" [routerLink]="['Login']">-->
+      <!--Login-->
+    <!--</a>-->
+  <!--</div>-->
+  <div class="right menu ">
+    <a *ngIf="!loginService.checkLogin()" class="item" routerLink="/Register" routerLinkActive="active" >
       Register
     </a>
-    <a class="item" [routerLink]="['Login']">
-      Login
+    <a class="item" routerLink="/Login" routerLinkActive="active" (click)="onClick()">
+      {{loginService.checkLogin()? 'Logout' : 'Login'}}
     </a>
   </div>
 </div>
