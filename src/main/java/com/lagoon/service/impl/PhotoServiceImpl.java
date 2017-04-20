@@ -27,8 +27,7 @@ public class PhotoServiceImpl implements PhotoService{
 
     @Override
     public List<Photo> findAll() {
-        // TODO Auto-generated method stub
-        return null;
+        return photoDao.findAll();
     }
 
     @Override
