@@ -42,6 +42,10 @@ export class LoginService {
     return localStorage.getItem('currentUserName') ? true : false;
   }
 
+  logout() {
+    localStorage.clear();
+  }
+
   private extractData(res: Response) {
     const body = res.json();
     return body.data || {};

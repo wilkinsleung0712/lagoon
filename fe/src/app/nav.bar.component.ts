@@ -12,4 +12,10 @@ export class NavBarComponent {
 
   constructor(private loginService: LoginService) {
   }
+
+  onClick() {
+    if (this.loginService.checkLogin()) {
+      this.loginService.logout();
+    }
+  }
 }

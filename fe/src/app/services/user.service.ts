@@ -27,6 +27,11 @@ export class UserService {
     return this.http.put(this.user_url, user).toPromise().then(this.extractData);
   }
 
+  getCurrentUserName(): String {
+    const currentUserName: String = localStorage.getItem('currentUserName');
+    return currentUserName ? currentUserName : '';
+  }
+
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);

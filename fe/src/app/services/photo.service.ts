@@ -5,10 +5,11 @@ import {Injectable} from '@angular/core';
 import {Photo} from '../model/photo';
 import {Http} from '@angular/http';
 import {stringify} from 'querystring';
+import {Observable} from 'rxjs/Observable';
 @Injectable()
 export class PhotoService {
 
-  private photo_url = 'api/photos';
+  private photo_url = 'http://localhost:8080/api/photos';
   private photo_crud_url = 'api/photos';
   private headers = new Headers({'Content-Type': 'application/json'});
 
@@ -42,6 +43,10 @@ export class PhotoService {
       .toPromise()
       .then(res => res.json().data as Photo)
       .catch(this.handleError);
+  }
+
+  getPhotoByUserName(userName:string):Observable<Photo[]>{
+    return null;
   }
 
   private handleError(error: any): Promise<any> {

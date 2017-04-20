@@ -14,6 +14,7 @@ const routes: Routes = [
   {path: 'Home', component: HomeComponent},
   {path: 'Register', component: RegisterComponent},
   {path: 'Login', component: LoginComponent},
+  {path: 'MyAlbum', component: LoginComponent},
   {path: 'Photo/:photoId', component: PhotoDetailComponent}
 ];
 @NgModule({

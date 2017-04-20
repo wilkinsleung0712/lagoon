@@ -9,6 +9,9 @@
     <a class="item" [routerLink]="['Home']">
       Home
     </a>
+    <a *ngIf="loginService.checkLogin()" class="item" routerLink="/MyAlbum">
+      My Album
+    </a>
   </div>
   <!--<div class="right menu">-->
     <!--<a class="item" [routerLink]="['Register']">-->
