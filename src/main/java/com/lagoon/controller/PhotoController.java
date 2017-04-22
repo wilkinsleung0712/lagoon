@@ -51,8 +51,8 @@ public class PhotoController {
     }
 
 
-    @RequestMapping(value="/photo/user",method = RequestMethod.POST)
-    public LagoonResult getPhotoByUserName (@RequestBody User user){
+    @RequestMapping(value="/photos/user",method = RequestMethod.POST)
+    public LagoonResult getPhotoByUser (@RequestBody User user){
         LagoonResult result = null;
         try {
             List<Photo> photo = this.photoService.findByUser(user);

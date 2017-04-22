@@ -10,4 +10,6 @@ public interface UserService {
     User findAll(String userName);
 
     User save(User user);
+    
+    User findByUserName(String username);
 }
