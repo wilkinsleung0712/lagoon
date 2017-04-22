@@ -3,9 +3,10 @@
  */
 import {Injectable} from '@angular/core';
 import {Photo} from '../model/photo';
-import {Http} from '@angular/http';
+import {Http, Headers, Response} from '@angular/http';
 import {stringify} from 'querystring';
 import {Observable} from 'rxjs/Observable';
+import {User} from '../model/user';
 @Injectable()
 export class PhotoService {
 
@@ -45,8 +46,14 @@ export class PhotoService {
       .catch(this.handleError);
   }
 
-  getPhotoByUserName(userName:string):Observable<Photo[]>{
-    return null;
+  getPhotoByUser(user: User): Observable<Photo[]> {
+    // get photo by providing user object
+    return this.http.post(`${this.photo_url}` + '/user', JSON.stringify(user), {headers: this.headers}).map(this.extraData);
+  }
+
+  private extraData(res: Response) {
+    let body = res.json();
+    return body.data || {};
   }
 
   private handleError(error: any): Promise<any> {

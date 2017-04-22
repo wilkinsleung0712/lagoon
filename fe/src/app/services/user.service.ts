@@ -2,7 +2,7 @@
  * Created by weiqiangliang on 9/4/17.
  */
 import {Injectable} from '@angular/core';
-import {Http, Response} from '@angular/http';
+import {Http, Response, Headers} from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
@@ -13,7 +13,7 @@ import {Observable} from 'rxjs/Observable';
 @Injectable()
 export class UserService {
 
-  private user_url = 'api/users';
+  private user_url = 'http://localhost:8080/api/users';
   private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: Http) {
@@ -39,6 +39,11 @@ export class UserService {
 
   private extractData(res: Response) {
     let body = res.json();
+    // only extra data that will ignore the stats code, be careful.
     return body.data || {};
+  }
+
+  getUserByUserName(username: string): Observable<User> {
+    return this.http.post(`${this.user_url}` + '/username', username, {headers: this.headers}).map(this.extractData);
   }
 }

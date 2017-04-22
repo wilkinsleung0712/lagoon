@@ -21,6 +21,7 @@ import {PhotoDetailComponent} from './photo.detail.component';
 import {LoginFormDirectiveComponent} from './directives/login.form.directive';
 import {RegisterFormDirectiveComponent} from './directives/register.form.directive';
 import {AddPhotoComponent} from "./directives/add.photo.component";
+import {MyAlbumComponent} from './my.album.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {AddPhotoComponent} from "./directives/add.photo.component";
     RegisterComponent,
     RegisterFormDirectiveComponent,
     LoginComponent,
-    LoginFormDirectiveComponent
+    LoginFormDirectiveComponent,
+    MyAlbumComponent
   ],
   imports: [
     HttpModule,
