@@ -32,8 +32,7 @@ public class PhotoServiceImpl implements PhotoService{
 
     @Override
     public Photo findByPhotoId(Long photoId) {
-        // TODO Auto-generated method stub
-        return null;
+        return photoDao.findByPhotoId(photoId);
     }
 
 }

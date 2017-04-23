@@ -27,8 +27,8 @@ export class UserService {
     return this.http.put(this.user_url, user).toPromise().then(this.extractData);
   }
 
-  getCurrentUserName(): String {
-    const currentUserName: String = localStorage.getItem('currentUserName');
+  getCurrentUserName(): string {
+    const currentUserName: string = localStorage.getItem('currentUserName');
     return currentUserName ? currentUserName : '';
   }
 

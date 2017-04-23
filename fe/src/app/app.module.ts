@@ -20,8 +20,9 @@ import {LoginComponent} from './login/login.component';
 import {PhotoDetailComponent} from './photo.detail.component';
 import {LoginFormDirectiveComponent} from './directives/login.form.directive';
 import {RegisterFormDirectiveComponent} from './directives/register.form.directive';
-import {AddPhotoComponent} from "./directives/add.photo.component";
+import {AddPhotoComponent} from './directives/add.photo.component';
 import {MyAlbumComponent} from './my.album.component';
+import {ImageCommentsComponent} from './image.comments.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {MyAlbumComponent} from './my.album.component';
     RegisterFormDirectiveComponent,
     LoginComponent,
     LoginFormDirectiveComponent,
-    MyAlbumComponent
+    MyAlbumComponent,
+    ImageCommentsComponent
   ],
   imports: [
     HttpModule,

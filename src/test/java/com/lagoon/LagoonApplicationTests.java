@@ -1,4 +1,4 @@
-package com.lagoon;
+package java.com.lagoon;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

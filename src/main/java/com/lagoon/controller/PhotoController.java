@@ -36,7 +36,7 @@ public class PhotoController {
         return result;
     }
 
-    @RequestMapping(value = "/photo/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/photo/{photoId}", method = RequestMethod.GET)
     public LagoonResult getPhoto(@PathVariable Long photoId) {
         LagoonResult result = null;
         try {

@@ -5,7 +5,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {PhotoService} from './services/photo.service';
 import {Photo} from './model/photo';
 import {ActivatedRoute, Params} from '@angular/router';
-import { Location } from '@angular/common';
+import {Location} from '@angular/common';
 import 'rxjs/add/operator/switchMap';
 @Component({
   selector: 'photo-detail',
@@ -13,7 +13,7 @@ import 'rxjs/add/operator/switchMap';
 })
 export class PhotoDetailComponent implements OnInit {
 
-  @Input() photo: Photo;
+  photo: Photo;
 
   constructor(private photoService: PhotoService,
               private route: ActivatedRoute,
@@ -24,7 +24,10 @@ export class PhotoDetailComponent implements OnInit {
     console.log('on init');
     // If a user re-navigates to this component while a getHero request is still processing,
     // switchMap cancels the old request and then calls HeroService.getHero() again.
-    this.route.params.switchMap((params: Params) => this.photoService.getPhoto(params['photoId'])).subscribe(photo => this.photo = photo);
-    console.log(this.photo);
+    this.route.params.switchMap(
+      (params: Params) => this.photoService.getPhoto(params['photoId']))
+      .subscribe((photo: Photo) => {
+        this.photo = photo;
+      });
   }
 }

@@ -4,7 +4,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Http} from '@angular/http';
 import {PhotoService} from './services/photo.service';
-import {Observable} from 'rxjs/Observable';
 import {Photo} from './model/photo';
 import {UserService} from './services/user.service';
 @Component({

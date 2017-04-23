@@ -7,11 +7,12 @@ import {Http, Headers, Response} from '@angular/http';
 import {stringify} from 'querystring';
 import {Observable} from 'rxjs/Observable';
 import {User} from '../model/user';
+import 'rxjs/Rx';
 @Injectable()
 export class PhotoService {
 
   private photo_url = 'http://localhost:8080/api/photos';
-  private photo_crud_url = 'api/photos';
+  private photo_crud_url = 'http://localhost:8080/api/photo';
   private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: Http) {
@@ -39,12 +40,11 @@ export class PhotoService {
     return this.http.delete(`${this.photo_crud_url}/${photo.photoId}`).toPromise().then(() => null).catch(this.handleError);
   }
 
-  getPhoto(photoId: number): Promise<Photo> {
-    return this.http.get(`${this.photo_crud_url}/${photoId}`)
-      .toPromise()
-      .then(res => res.json().data as Photo)
+  getPhoto(photoId: number): Observable<Photo> {
+    return this.http.get(`${this.photo_crud_url}` + '/' + photoId)
+      .map(this.extraData)
       .catch(this.handleError);
-  }
+}
 
   getPhotoByUser(user: User): Observable<Photo[]> {
     // get photo by providing user object
