@@ -22,5 +22,5 @@
   </div>
 </div>
 <div>
-  <image-comments [photo]="photo"></image-comments>
+  <image-comments *ngIf="photo" [photo]="photo"></image-comments>
 </div>

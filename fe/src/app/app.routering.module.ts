@@ -8,6 +8,7 @@ import {RegisterComponent} from './register/register.component';
 import {LoginComponent} from './login/login.component';
 import {PhotoDetailComponent} from './photo.detail.component';
 import {MyAlbumComponent} from './my.album.component';
+import {AddPhotoComponent} from './directives/add.photo.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: 'Register', component: RegisterComponent},
   {path: 'Login', component: LoginComponent},
   {path: 'MyAlbum', component: MyAlbumComponent},
-  {path: 'Photo/:photoId', component: PhotoDetailComponent}
+  {path: 'Photo/:photoId', component: PhotoDetailComponent},
+  {path: 'add-photo', component : AddPhotoComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

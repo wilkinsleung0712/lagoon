@@ -23,6 +23,8 @@ import {RegisterFormDirectiveComponent} from './directives/register.form.directi
 import {AddPhotoComponent} from './directives/add.photo.component';
 import {MyAlbumComponent} from './my.album.component';
 import {ImageCommentsComponent} from './image.comments.component';
+import {CommentService} from './services/comment.service';
+import {UploadPhotoService} from './services/upload.photot.service';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import {ImageCommentsComponent} from './image.comments.component';
   ],
   providers: [
     PhotoService,
-    UserService
+    UserService,
+    CommentService,
+    UploadPhotoService
   ],
   bootstrap: [AppComponent]
 })

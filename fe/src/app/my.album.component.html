@@ -5,7 +5,7 @@
 
       </div>
       <div class="twelve wide column">
-        <div class="ui segments horizontal">
+        <div class="ui segments horizontal photo-list-segments">
           <span *ngFor="let photo of photos" style="margin-right: 5px !important;">
             <div class="ui segment">
               <img src="http://localhost:4200/resources/static/pic/{{photo.imageName}}.jpg" class='ui medium image'
@@ -21,6 +21,7 @@
             </div>
           </span>
         </div>
+        <a class="ui button" routerLink="/add-photo" routerLinkActive="active">Add Photo</a>
       </div>
       <div class="two wide column">
 

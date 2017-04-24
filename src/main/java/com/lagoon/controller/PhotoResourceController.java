@@ -24,12 +24,12 @@ import com.lagoon.service.PhotoService;
 @RestController
 @RequestMapping("/api")
 public class PhotoResourceController {
-    
+
     private String imageName;
-    
+
     @Autowired
     private PhotoService photoService;
-    
+
     @RequestMapping(value = "/photo", method = RequestMethod.PUT)
     public LagoonResult editPhoto(@RequestBody Photo photo) {
         LagoonResult result = null;
@@ -48,19 +48,20 @@ public class PhotoResourceController {
     public LagoonResult deletePhoto(@PathVariable("id") long photoId) {
         return null;
     }
-    
+
     @RequestMapping(value = "/photo", method = RequestMethod.POST)
     public LagoonResult uploadPhoto(HttpServletRequest request, HttpServletResponse response) {
+
         MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
         Iterator<String> it = multipartRequest.getFileNames();
         MultipartFile multipartFile = multipartRequest.getFile(it.next());
-        // prepare file name to create path
         String fileName = multipartFile.getOriginalFilename();
-        this.imageName = fileName;
-        // get a path to store file
-        String path = new File("target/classes/static/images").getAbsolutePath() + "/" + fileName;
-        // transfer multipart file to normal file
+        setImageName(fileName);
+
         try {
+            File theFile = new File("target/classes/static/images");
+            theFile.mkdirs();
+            String path = theFile.getAbsolutePath() + "\\" + fileName;
             multipartFile.transferTo(new File(path));
             System.out.println(path);
         } catch (IllegalStateException | IOException e) {
@@ -69,5 +70,33 @@ public class PhotoResourceController {
             return LagoonResult.build(500, ExceptionUtils.getStackTrace(e), null);
         }
         return LagoonResult.ok("Upload Success!");
+    }
+
+    @RequestMapping(value = "/photo/add", method = RequestMethod.POST)
+    public LagoonResult addPhoto(@RequestBody Photo photo) {
+        LagoonResult result = null;
+        try {
+            String photoName = this.getImageName();
+            if (!photoName.trim().isEmpty()) {
+                photo.setImageName(photoName);
+                return result = LagoonResult.ok(photo);
+            }
+
+            result = new LagoonResult(400, "photo is not yet uploaded", null);
+            
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            result = new LagoonResult(500, ExceptionUtils.getStackTrace(e), null);
+        }
+        return result;
+    }
+
+    public String getImageName() {
+        return imageName != null && !imageName.trim().isEmpty() ? imageName : "";
+    }
+
+    private void setImageName(String imageName) {
+        this.imageName = imageName;
     }
 }

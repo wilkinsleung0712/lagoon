@@ -17,7 +17,7 @@ export class Photo {
   public commentList: Comment[];
   public created: Date;
 
-  constructor(photoId: number, photoName: string, imageName: string, title: string, description: string) {
+  constructor(photoId?: number, photoName?: string, imageName?: string, title?: string, description?: string) {
     this.photoId = photoId;
     this.photoName = photoName;
     this.imageName = imageName;

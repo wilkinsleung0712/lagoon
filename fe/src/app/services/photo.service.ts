@@ -29,10 +29,9 @@ export class PhotoService {
       .then(() => photo);
   }
 
-  addPhoto(photo: Photo): Promise<Photo> {
-    return this.http.post(this.photo_url, JSON.stringify(photo), stringify({'headers': this.headers}))
-      .toPromise()
-      .then(res => res.json().data as Photo)
+  addPhoto(photo: Photo): Observable<Photo> {
+    return this.http.post(this.photo_url + '/add', JSON.stringify(photo), stringify({'headers': this.headers}))
+      .map(this.extraData)
       .catch(this.handleError);
   }
 
@@ -44,7 +43,7 @@ export class PhotoService {
     return this.http.get(`${this.photo_crud_url}` + '/' + photoId)
       .map(this.extraData)
       .catch(this.handleError);
-}
+  }
 
   getPhotoByUser(user: User): Observable<Photo[]> {
     // get photo by providing user object
