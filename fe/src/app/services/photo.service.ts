@@ -4,7 +4,6 @@
 import {Injectable} from '@angular/core';
 import {Photo} from '../model/photo';
 import {Http, Headers, Response} from '@angular/http';
-import {stringify} from 'querystring';
 import {Observable} from 'rxjs/Observable';
 import {User} from '../model/user';
 import 'rxjs/Rx';
@@ -30,7 +29,7 @@ export class PhotoService {
   }
 
   addPhoto(photo: Photo): Observable<Photo> {
-    return this.http.post(this.photo_url + '/add', JSON.stringify(photo), stringify({'headers': this.headers}))
+    return this.http.post(this.photo_crud_url + '/add', JSON.stringify(photo), {'headers': this.headers})
       .map(this.extraData)
       .catch(this.handleError);
   }

@@ -2,7 +2,7 @@
   <div class="ui inverted vertical masthead segment">
     <div class="ui text container">
       <div class="center aligned">
-        <img src="http://localhost:4200/resources/static/pic/sample1.jpg" class="ui image massive centered" style="margin-top: 61px;" />
+        <img src="http://localhost:8080/images/{{photo.imageName}}.jpg" class="ui image massive centered" style="margin-top: 61px;"  *ngIf="photo.imageName"/>
       </div>
       <br>
       <div class="ui grid">
@@ -12,9 +12,7 @@
         <div class="right floated right aligned six wide column" style="color: gray;">
           <i class="thumbs outline up icon"></i>
           <!--http://stackoverflow.com/questions/34455531/angular-2-object-works-object-child-throws-error-->
-          <div *ngIf="photo">
           <h2>{{photo.likes}}</h2>
-          </div>
           &nbsp;&nbsp;<a style="cursor: pointer" (click)="likeDisplay()">{{like}}</a>
         </div>
       </div>

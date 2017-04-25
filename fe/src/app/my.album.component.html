@@ -8,7 +8,7 @@
         <div class="ui segments horizontal photo-list-segments">
           <span *ngFor="let photo of photos" style="margin-right: 5px !important;">
             <div class="ui segment">
-              <img src="http://localhost:4200/resources/static/pic/{{photo.imageName}}.jpg" class='ui medium image'
+              <img src="http://localhost:8080/images/{{photo.imageName}}.jpg" class='ui medium image'
                    (click)="onSelect(photo)" style="cursor: pointer"/>
               <div class="ui grid">
                 <div class="twelve wide column left aligned">

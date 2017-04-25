@@ -13,7 +13,7 @@ import 'rxjs/add/operator/switchMap';
 })
 export class PhotoDetailComponent implements OnInit {
 
-  photo: Photo;
+  photo: Photo = new Photo();
 
   constructor(private photoService: PhotoService,
               private route: ActivatedRoute,

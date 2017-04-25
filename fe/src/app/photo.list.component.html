@@ -6,7 +6,7 @@
 
     <div class="fourteen wide column">
       <div class="ui raised segment" *ngFor="let photo of photos">
-        <a [routerLink]="['/Photo',photo.photoId]"><img src="resources/static/pic/sample1.jpg"
+        <a [routerLink]="['/Photo',photo.photoId]"><img src="http://localhost:8080/images/{{photo.imageName}}.jpg"
                                                         class="ui image centered big" style="cursor: pointer"/>
           <div class="photoModule">
             <div class="ui center aligned grid">
